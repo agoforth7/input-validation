@@ -98,8 +98,28 @@
                 nameEl.parentElement.classList.add('is-error');
                 valid = false;
             }
-            if (descriptionEl.value.length === 0) {
+            if (nameEl.value.length > 0 && nameEl.value.length < 3) {
+                nameEl.parentElement.dataset.error = 'Please enter more than 3 characters';
+                nameEl.parentElement.classList.add('is-error');
+                valid = false;
+            }
+            if (nameEl.value.length > 50) {
+                nameEl.parentElement.dataset.error = 'Please enter less than 50 characters';
+                nameEl.parentElement.classList.add('is-error');
+                valid = false;
+            }
+            if (descriptionEl.value === '') {
                 descriptionEl.parentElement.dataset.error = 'Required';
+                descriptionEl.parentElement.classList.add('is-error');
+                valid = false;
+            }
+            if (descriptionEl.value.length > 0 && descriptionEl.value.length < 20) {
+                descriptionEl.parentElement.dataset.error = 'Please enter more than 20 characters';
+                descriptionEl.parentElement.classList.add('is-error');
+                valid = false;
+            }
+            if (descriptionEl.value.length > 255) {
+                descriptionEl.parentElement.dataset.error = 'Please enter less than 255 characters';
                 descriptionEl.parentElement.classList.add('is-error');
                 valid = false;
             }
@@ -119,16 +139,25 @@
                 skill.parentElement.classList.add('is-error');
                 valid = false;
             } 
-
         } else if (currentStep === 2) {
             if (ingredients.value === '') {
                 ingredients.parentElement.dataset.error = 'Required';
                 ingredients.parentElement.classList.add('is-error');
                 valid = false;
             }
+            if (ingredients.value.length > 255) {
+                ingredients.parentElement.dataset.error = 'Please enter less than 255 characters';
+                ingredients.parentElement.classList.add('is-error');
+                valid = false;
+            }
         } else if (currentStep === 3) {
             if (stepsArea.value === '') {
                 stepsArea.parentElement.dataset.error = 'Required';
+                stepsArea.parentElement.classList.add('is-error');
+                valid = false;
+            }
+            if (stepsArea.value.length > 255) {
+                stepsArea.parentElement.dataset.error = 'Please enter less than 255 characters';
                 stepsArea.parentElement.classList.add('is-error');
                 valid = false;
             }
